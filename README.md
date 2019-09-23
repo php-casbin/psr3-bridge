@@ -1,4 +1,4 @@
-# PSR-3 Bridge
+# PSR-3 Bridge for PHP-Casbin Logger
 
 [![Build Status](https://travis-ci.org/php-casbin/psr3-bridge.svg?branch=master)](https://travis-ci.org/php-casbin/psr3-bridge)
 [![Coverage Status](https://coveralls.io/repos/github/php-casbin/psr3-bridge/badge.svg)](https://coveralls.io/github/php-casbin/psr3-bridge)
