@@ -1,12 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Casbin\Bridge\Logger;
 
-use Casbin\Log\Logger as LoggerContract;
+use Casbin\Log\Logger;
 use Psr\Log\LoggerInterface;
 
-class LoggerBridge implements LoggerContract
+class LoggerBridge implements Logger
 {
+    /**
+     * Whether to enable logging.
+     *
+     * @var bool
+     */
     public $enable = false;
 
     /**
@@ -40,7 +47,7 @@ class LoggerBridge implements LoggerContract
      *
      * @param bool $enable
      */
-    public function enableLog($enable)
+    public function enableLog(bool $enable): void
     {
         $this->enable = $enable;
     }
@@ -50,7 +57,7 @@ class LoggerBridge implements LoggerContract
      *
      * @return bool
      */
-    public function isEnabled()
+    public function isEnabled(): bool
     {
         return $this->enable;
     }
@@ -59,10 +66,8 @@ class LoggerBridge implements LoggerContract
      * formats using the default formats for its operands and logs the message.
      *
      * @param mixed ...$v
-     *
-     * @return mixed
      */
-    public function write(...$v)
+    public function write(...$v): void
     {
         if (!$this->enable) {
             return;
@@ -84,12 +89,10 @@ class LoggerBridge implements LoggerContract
     /**
      * formats according to a format specifier and logs the message.
      *
-     * @param $format
-     * @param mixed ...$v
-     *
-     * @return mixed
+     * @param string $format
+     * @param mixed  ...$v
      */
-    public function writef($format, ...$v)
+    public function writef(string $format, ...$v): void
     {
         if (!$this->enable) {
             return;
